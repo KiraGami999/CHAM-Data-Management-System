@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png"  href="{{url_for('static', path='/images/cham logo.png')}}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url_for('static', path='/css/output.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&family=Pinyon+Script&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .anta-regular {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+</style>
+
+<body class=" flex items-center justify-center h-screen">
+   <!-- BLURRED GIF BACKGROUND -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+    <img 
+        src="{{url_for('static', path='/images/background gif.gif')}}"
+        class="w-full h-full object-cover blur-sm scale-110"
+        alt=""
+    >
+</div>
+
+    <div class ="max-w-[960px] min-w-[960px] min-h-[450px] bg-black-dark grid grid-cols-2 gap-20 items-center p-5 rounded-2xl">
+        <div class="relative">
+          
+             <img src="{{url_for('static',path = '/images/cham logo.png')}}" class="absolute top-[-140px]" alt="">
+        </div>
+        <div class="max-w-80 grid gap-5">
+            <h1 class="text-5xl font-bold text-white anta-regular">Login</h1>
+            <p class="text-dull-white">Access portal and dashboard for <span class="text-red-700 font-extrabold">CHAM</span> Integrated Information System</p>
+
+            <form action="/login" method="POST" class="space-y-5 text-white">
+                <div class="relative">
+                    <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center text-blue-300 bg-white-medium">
+                        <i class="fa-solid fa-envelope-open "></i>
+                    </div>
+                    <input type="email" name="username" placeholder="Email Address" id="email" class="w-80  bg-white-light py-2 px-12 rounded-full focus:bg-black-dark focus:outline-none focus:ring-1 focus:ring-neon-blue focus:drop-shadow-lg">
+                </div>
+                <div class="relative">
+                    <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center text-blue-300 bg-white-medium">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <input type="password" name="password" placeholder="Password" id="password" class="w-80  bg-white-light py-2 px-12 rounded-full focus:bg-black-dark focus:outline-none focus:ring-1 focus:ring-neon-blue focus:drop-shadow-lg">
+                </div>
+                <button class="bg-gradient-to-r from-sky-800 to-cyan-300 rounded-full py-2 w-80 font-semibold hover:scale-105 transition-transform duration-300" name="sign_in" id="sign_in">Sign In</button>
+            </form>
+            <div class="border-t border-white-light pt-4">
+                <p class="text-dull-white">Forgot Password? <a href="#" class="text-red-600">Reset Password</a></p>
+            </div>
+        </div>
+        {% if error %}
+<p class="text-red-600">{{error}}</p>
+{% endif %}
+
+    </div>
+</body>
+
+
+</html>

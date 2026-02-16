@@ -1,0 +1,41 @@
+<a href="#" class="nav-item-active flex items-center gap-3 px-4 py-3 rounded-xl text-white"><i class="fa-solid fa-graduation-cap w-5 text-cyan-300"></i> Student management</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-boxes-stacked w-5 text-sky-400"></i> Inventory & stock</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-hospital-user w-5 text-emerald-300"></i> HR & facility returns</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-handshake w-5 text-amber-300"></i> Membership tracking</a>
+
+
+
+
+                <!-- SECTION 1: student management analytics -->
+            <div class="card-glass p-5">
+                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                    <h2 class="text-xl flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-cyan-300"></i> Student data · CHAM colleges</h2>
+                    <span class="text-xs bg-sky-900/40 px-3 py-1 rounded-full">11 institutions, 10+ cadres</span>
+                </div>
+                <!-- analytics indicators row -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-4">
+                    <div class="bg-black/40 rounded-xl p-3 border-l-4 border-cyan-400"><span class="text-xs text-dull-white">enrolled 2025</span><p class="text-2xl font-bold">2,845 <span class="text-sm text-green-400">↑12%</span></p></div>
+                    <div class="bg-black/40 rounded-xl p-3 border-l-4 border-pink-400"><span class="text-xs text-dull-white">female</span><p class="text-2xl font-bold">1,482</p><span class="text-xs">52%</span></div>
+                    <div class="bg-black/40 rounded-xl p-3 border-l-4 border-amber-400"><span class="text-xs text-dull-white">scholarship</span><p class="text-2xl font-bold">887</p></div>
+                    <div class="bg-black/40 rounded-xl p-3 border-l-4 border-red-500"><span class="text-xs text-dull-white">attrition (y1)</span><p class="text-2xl font-bold">124 <span class="text-sm text-red-300">↘4.3%</span></p></div>
+                    <div class="bg-black/40 rounded-xl p-3 border-l-4 border-emerald-300"><span class="text-xs text-dull-white">self‑pay</span><p class="text-2xl font-bold">1,503</p></div>
+                </div>
+                <!-- mini cadre breakdown -->
+                <div class="flex flex-wrap gap-4 mt-4 text-xs">
+                    <span class="bg-cyan-900/30 px-3 py-1 rounded-full">nursing: 1,240</span>
+                    <span class="bg-cyan-900/30 px-3 py-1 rounded-full">clinical: 602</span>
+                    <span class="bg-cyan-900/30 px-3 py-1 rounded-full">pharmacy: 315</span>
+                    <span class="bg-cyan-900/30 px-3 py-1 rounded-full">lab tech: 287</span>
+                    <span class="bg-cyan-900/30 px-3 py-1 rounded-full">+6 others</span>
+                </div>
+                <!-- extra indicator (enrollment trend) -->
+                <div class="mt-4 h-12 flex items-end gap-1">
+                    <div class="w-6 bg-cyan-600 h-8 rounded-t"></div><div class="w-6 bg-cyan-500 h-10 rounded-t"></div><div class="w-6 bg-cyan-400 h-12 rounded-t"></div><div class="w-6 bg-cyan-300 h-9 rounded-t"></div><div class="w-6 bg-cyan-500 h-7 rounded-t"></div>
+                    <span class="text-dull-white ml-2 text-xs">weekly trend (enrollment)</span>
+                </div>
+            </div>
+
+
+
+
+            <h1 class="text-2xl anta-regular text-white">Integrated information system <span class="text-sm font-normal text-dull-white ml-3"> · dashboard</span></h1>

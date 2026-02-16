@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAM · integrated dashboard</title>
+    <link rel="icon" type="image/png" href="#">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- same font family as login -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Pinyon+Script&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- custom styles to match login aesthetic -->
+    <style>
+        .anta-regular { font-family: "Anta", sans-serif; font-weight: 400; font-style: normal; }
+        body { font-family: 'Roboto Condensed', sans-serif; background-color: #0a0c0f; }
+        /* blurred background (similar to login gif but static gradient to keep it calm) */
+        .bg-blur-panel {
+            background: radial-gradient(circle at 10% 20%, rgba(20, 40, 70, 0.8), #030507);
+            backdrop-filter: blur(2px);
+        }
+        /* glassmorphism cards */
+        .card-glass {
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(120, 180, 255, 0.15);
+            border-radius: 1.2rem;
+            box-shadow: 0 20px 35px -8px rgba(0,0,0,0.7);
+        }
+        /* custom neon blue from login input ring */
+        .ring-neon { transition: all 0.15s ease; }
+        .ring-neon:hover { box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.4); }
+        /* sidebar icon active */
+        .nav-item-active { background: linear-gradient(145deg, #0b1c2e, #02111e); border-left: 4px solid #00c8ff; }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- subtle animated background (similar blurred gif effect, but static to avoid busyness) -->
+    <div class="fixed inset-0 -z-20 overflow-hidden">
+        <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzFhMjg0MjtzdG9wLW9wYWNpdHk6MC4yIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBkMTUyMjtzdG9wLW9wYWNpdHk6MC42IiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9InVybCgjZykiIC8+PC9zdmc+')] bg-cover bg-center blur-[2px] scale-105"></div>
+    </div>
+
+    <!-- main dashboard wrapper with sidebar + content -->
+    <div class="flex max-w-[1500px] mx-auto p-4 md:p-5 gap-5 min-h-screen">
+
+        <!-- SIDEBAR (glass, matches login card style) -->
+        <aside class="w-72 card-glass p-4 flex flex-col gap-6">
+            <!-- logo area -->
+            <div class="flex items-center gap-2 border-b border-white/10 pb-4">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-700 to-cyan-300 flex items-center justify-center">
+                    <span class="text-black font-black text-xl">C</span>
+                </div>
+                <span class="anta-regular text-2xl tracking-wide text-white">CHAM<span class="text-cyan-400">.</span></span>
+            </div>
+
+            <!-- user info -->
+            <div class="flex items-center gap-3 bg-black/30 p-3 rounded-2xl ring-1 ring-white/5">
+                <div class="w-10 h-10 rounded-full bg-sky-900/70 flex items-center justify-center text-cyan-200"><i class="fa-regular fa-user"></i></div>
+                <div>
+                    <p class="text-sm text-dull-white">Secretariat</p>
+                    <p class="font-medium text-white">admin@cham.org.mw</p>
+                </div>
+            </div>
+
+            <!-- main navigation (sections) -->
+            <nav class="flex flex-col gap-1 text-sm">
+                <p class="text-xs uppercase tracking-wider text-dull-white/50 mb-1">modules</p>
+                {%block sidebar %}
+
+                {% endblock %}
+            </nav>
+
+            <!-- shortcuts / analytics summary -->
+            
+        </aside>
+
+        <!-- MAIN CONTENT (4 sections as cards + indicator pages inside) -->
+        <main class="flex-1 flex flex-col gap-5">
+
+            <!-- top bar (title + date) -->
+            <div class="card-glass p-4 flex justify-between items-center">
+                <h1 class="text-xl anta-regular text-white">{% block title %}{% endblock %}</h1>
+                <div class="flex gap-4 text-sm"><i class="fa-regular fa-calendar text-cyan-400"></i> Tue, 15 April 2025</div>
+            </div>
+
+            {% block content %}
+
+            {% endblock %}
+            
+
+           
+            <!-- tiny footer note (extra analytics row) -->
+            <div class="card-glass p-3 flex justify-between text-xs text-dull-white">
+                <span><i class="fa-regular fa-message"></i> CHAM integrated dashboard · realtime indicators (simulated)</span>
+                <span><i class="fa-regular fa-copyright"></i> 2026 CHAM Secretariat</span>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
