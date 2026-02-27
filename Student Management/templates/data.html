@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+ {%block sidebar %}
+<a href="#" class="nav-item-active flex items-center gap-3 px-4 py-3 rounded-xl text-white"><i class="fa-solid fa-graduation-cap w-5 text-cyan-300"></i> Tables</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-boxes-stacked w-5 text-sky-400"></i> Ulunji</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-hospital-user w-5 text-emerald-300"></i> Lumbani</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-handshake w-5 text-amber-300"></i>Bless</a>
+
+ {% endblock %}
+
+ {% block title %}
+ Car data for {{Name}}
+ {% endblock %}
+
+{% block content %}
+
+<table class="">
+    <tr>
+        <th>ID</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+    </tr>
+    {% for car in cars %}
+    <tr>
+        <td>{{ car.id }}</td>
+        <td>{{ car.make }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.year }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{%endblock %}
